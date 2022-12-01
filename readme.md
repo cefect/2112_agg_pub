@@ -11,14 +11,14 @@ see conda\conda_env.yml
 git submodule add -b 2112_Agg https://github.com/cefect/coms.git
 
 ## Use
+### computation
 raw input data is specified in the definitions.py
 working data files are constructed with haz/run.py and expo/run.py
-    resulting data filepaths are entered into the corresponding 'res_fp_lib'
+resulting data filepaths are entered into the corresponding 'res_fp_lib'
     
-    
+### analysis and plottring
 plots are generated with a few standalone scripts 'run_da...'
-
-    maps_SJ_r11_direct_diffXR_1201.svg: agg2/run_da_maps
+ - maps_SJ_r11_direct_diffXR_1201.svg: agg2/run_da_maps
 
 
 ## Tests
