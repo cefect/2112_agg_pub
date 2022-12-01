@@ -14,7 +14,7 @@ import pytest, copy, os, random
 import rasterio as rio
 from agg2.haz.coms import get_rand_ar, get_wse_filtered, assert_dx_names, coldx_d
 from agg2.haz.scripts import UpsampleSession as Session
-from agg2.haz.run import run_haz_agg2
+from agg2.haz.run import run_haz_agg2XR
  
 xfail = pytest.mark.xfail
  
@@ -309,7 +309,7 @@ def test_07_pTP(wrkr, agg_pick_df, cm_pick_fp):
 @pytest.mark.parametrize('proj_d', [proj_d])
 def test_runHaz(method, proj_d, dsc_l, tmp_path):
     """use the function runner"""
-    fp_d, stat_d = run_haz_agg2(proj_d=proj_d, method=method, dsc_l=dsc_l, case_name='tCn', run_name='tRn',
+    fp_d, stat_d = run_haz_agg2XR(proj_d=proj_d, method=method, dsc_l=dsc_l, case_name='tCn', run_name='tRn',
                  wrk_dir=tmp_path)
     
     for k, fp in stat_d.items():

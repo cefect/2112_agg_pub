@@ -76,37 +76,35 @@ def wrkr(tmp_path,write,logger, test_name,
  
 
 
-#===============================================================================
-# @pytest.fixture(scope='function')
-# def cMask_pick_fp(cMask_rlay_fp, tmp_path):
-#     """mimic output of run_catMasks"""
-#     df = pd.DataFrame.from_dict(
-#         {'downscale':[1,2],'catMosaic':[np.nan, cMask_rlay_fp],}
-#         )
-#     ofp = os.path.join(tmp_path, 'test_cMasks_%i.pkl'%len(df))
-#     df.to_pickle(ofp)
-#     
-#     return ofp
-#  
-# 
-# @pytest.fixture(scope='function')
-# def cMask_rlay_fp(cMask_ar, tmp_path):
-#     ofp = os.path.join(tmp_path, 'cMask_%i.tif'%cMask_ar.size)
-#     
-#     width, height = cMask_ar.shape
-#     
-#     write_array(cMask_ar, ofp, crs=crs,
-#                  transform=rio.transform.from_bounds(*bbox_base.bounds,width, height),  
-#                  masked=False)
-#     
-#     return ofp
-#  
-#     
-#  
-# @pytest.fixture(scope='function')    
-# def cMask_ar(shape):
-#     return np.random.choice(np.array(list(cm_int_d.values())), size=shape)
-#===============================================================================
+@pytest.fixture(scope='function')
+def cMask_pick_fp(cMask_rlay_fp, tmp_path):
+    """mimic output of run_catMasks"""
+    df = pd.DataFrame.from_dict(
+        {'downscale':[1,2],'catMosaic':[np.nan, cMask_rlay_fp],}
+        )
+    ofp = os.path.join(tmp_path, 'test_cMasks_%i.pkl'%len(df))
+    df.to_pickle(ofp)
+     
+    return ofp
+  
+ 
+@pytest.fixture(scope='function')
+def cMask_rlay_fp(cMask_ar, tmp_path):
+    ofp = os.path.join(tmp_path, 'cMask_%i.tif'%cMask_ar.size)
+     
+    width, height = cMask_ar.shape
+     
+    write_array(cMask_ar, ofp, crs=crs,
+                 transform=rio.transform.from_bounds(*bbox_base.bounds,width, height),  
+                 masked=False)
+     
+    return ofp
+  
+     
+  
+@pytest.fixture(scope='function')    
+def cMask_ar(shape):
+    return np.random.choice(np.array(list(cm_int_d.values())), size=shape)
 
 
 
@@ -115,7 +113,7 @@ def wrkr(tmp_path,write,logger, test_name,
 #===============================================================================
 # TESTS-------------
 #===============================================================================
-
+@pytest.mark.dev
 @pytest.mark.parametrize('finv_fp', [proj_d['finv_fp']])
 @pytest.mark.parametrize('shape', [(10,10)], indirect=False)
 @pytest.mark.parametrize('bbox', [
@@ -123,6 +121,7 @@ def wrkr(tmp_path,write,logger, test_name,
                                 None
                                   ])
 def test_01_assetRsc(wrkr, cMask_pick_fp, finv_fp, bbox): 
+    
     ofp = wrkr.build_assetRsc(cMask_pick_fp, finv_fp, bbox=bbox)
     
 
@@ -133,7 +132,7 @@ def test_01_assetRsc(wrkr, cMask_pick_fp, finv_fp, bbox):
     #'wd',
     'wse'])
 @pytest.mark.parametrize('finv_fp', [proj_d['finv_fp']])
-@pytest.mark.parametrize('shape', [(10,10)], indirect=False)
+#@pytest.mark.parametrize('shape', [(10,10)], indirect=True)
 @pytest.mark.parametrize('bbox', [
                                 bbox_base, 
                                 None
@@ -146,7 +145,7 @@ def test_02_laySamp(wrkr, lay_pick_fp, finv_fp, bbox, layName):
 @pytest.mark.dev
 @pytest.mark.parametrize('proj_d', [proj_d])
 @pytest.mark.parametrize('dsc_l', [([1,2,5])])
-@pytest.mark.parametrize('shape', [(10,10)], indirect=False)
+#@pytest.mark.parametrize('shape', [(10,10)], indirect=True)
 def test_runExpo(proj_d, tmp_path, complete_pick_fp):
     run_expo( wrk_dir=tmp_path, case_name='tCn', run_name='tRn', proj_d=proj_d,
               fp_d={'catMasks':complete_pick_fp},

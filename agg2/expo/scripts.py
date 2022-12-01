@@ -217,7 +217,15 @@ class ExpoSession(ExpoWrkr, Agg2Session):
                        bbox=None,
                        centroids=True,
                         **kwargs):
-        """join resampClass to each asset (one column per resolution)"""
+        """join resampClass to each asset (one column per resolution)
+        
+        
+        Parameters
+        ------------
+        cm_fp_d: dict
+            collection of category mask file paths
+        
+        """
         
         log, tmp_dir, out_dir, ofp, resname, write = self._func_setup('arsc',  subdir=True,ext='.pkl', **kwargs)
         
