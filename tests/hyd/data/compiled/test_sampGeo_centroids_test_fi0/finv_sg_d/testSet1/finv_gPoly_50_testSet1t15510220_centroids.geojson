@@ -1,0 +1,18 @@
+{
+"type": "FeatureCollection",
+"name": "finv_gPoly_50_testSet1t15510220_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::2955" } },
+"features": [
+{ "type": "Feature", "properties": { "gid": 9 }, "geometry": { "type": "Point", "coordinates": [ 321241.421000000031199, 5525654.690999999642372 ] } },
+{ "type": "Feature", "properties": { "gid": 8 }, "geometry": { "type": "Point", "coordinates": [ 321191.421000000031199, 5525504.690999999642372 ] } },
+{ "type": "Feature", "properties": { "gid": 11 }, "geometry": { "type": "Point", "coordinates": [ 321241.421000000031199, 5525554.690999999642372 ] } },
+{ "type": "Feature", "properties": { "gid": 10 }, "geometry": { "type": "Point", "coordinates": [ 321241.421000000031199, 5525604.690999999642372 ] } },
+{ "type": "Feature", "properties": { "gid": 14 }, "geometry": { "type": "Point", "coordinates": [ 321291.421000000031199, 5525604.690999999642372 ] } },
+{ "type": "Feature", "properties": { "gid": 1 }, "geometry": { "type": "Point", "coordinates": [ 321141.421000000031199, 5525654.690999999642372 ] } },
+{ "type": "Feature", "properties": { "gid": 3 }, "geometry": { "type": "Point", "coordinates": [ 321141.421000000031199, 5525554.690999999642372 ] } },
+{ "type": "Feature", "properties": { "gid": 2 }, "geometry": { "type": "Point", "coordinates": [ 321141.421000000031199, 5525604.690999999642372 ] } },
+{ "type": "Feature", "properties": { "gid": 5 }, "geometry": { "type": "Point", "coordinates": [ 321191.421000000031199, 5525654.690999999642372 ] } },
+{ "type": "Feature", "properties": { "gid": 7 }, "geometry": { "type": "Point", "coordinates": [ 321191.421000000031199, 5525554.690999999642372 ] } },
+{ "type": "Feature", "properties": { "gid": 6 }, "geometry": { "type": "Point", "coordinates": [ 321191.421000000031199, 5525604.690999999642372 ] } }
+]
+}
